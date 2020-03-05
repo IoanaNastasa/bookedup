@@ -1,18 +1,22 @@
 const mongoose = require('mongoose');
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     firstName: {
-        type: String
+        type: String,
+        required: true
     },
     lastName: {
-        type: String
+        type: String,
+        required: true
     },
     email: {
-        type: String
+        type: String,
+        required: true
     },
     password: {
-        type: String
+        type: String,
+        required: true
     },
     wantToReadList: {
         type: Array
