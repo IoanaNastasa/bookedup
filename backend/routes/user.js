@@ -82,4 +82,7 @@ router.post('/login', (req, res) => {
         })
     })
 })
+
+// TODO: Add put routes to edit want to read and read titles
+
 module.exports = router;
