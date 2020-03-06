@@ -62,6 +62,11 @@ router.post('/login', (req, res) => {
         // check if password is correct
         bcrypt.compare(password, user.password).then(isMatch => {
             if( !isMatch ) res.json('wrong password');
+            // console.log('id', user.id);
+            // res.cookie('userId', user.id);
+            // console.log(req.cookie(userId));
+            // res.cookie('')
+            // console.log(req.cookie.userId);
             jwt.sign(
                 { id: user.id},
                 JWTSecret,
