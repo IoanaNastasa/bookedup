@@ -11,7 +11,7 @@ export default function Landingpage() {
                 <div>
                     <button className="content__btn--register">Register</button>
                     <button className="content__btn--login">Log In</button>
-                    <span className="content__browse-span">or <a href="#">browse without an account</a></span>
+                    <span className="content__browse-span"><a href="#">browse without an account</a></span>
                 </div>
             </div>
             <div className="landingpage-container__illustration-box">

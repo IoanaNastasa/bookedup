@@ -8,15 +8,14 @@
         flex-direction: column;
         justify-content: space-between;
         flex: 1;
-        padding: 2rem 4rem 4rem 4rem;
+        padding: 2rem 4rem 2rem 4rem;
         .content__title {
-            font-size: 2rem;
-            font-family: $secondary-font;
-            font-weight: bold;
+            font-size: 2.5rem;
+            font-family: $primary-font;
         }
         .content__cta {
             font-size: 3rem;
-            font-family: $primary-font;
+            font-family: $secondary-font;
             padding: 2rem 0;
             line-height: 1.2;
         }
@@ -37,11 +36,12 @@
                 color: $white;
             }
         }
-        .content__browse-span {
-            font-family: $primary-font;
-            a {
-                color: $dark-purple;
-            }
+        .content__browse-span  a{
+            font-family: $secondary-font;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: $yellow;
+            text-decoration: none;
         }
     }
     &__illustration-box {
