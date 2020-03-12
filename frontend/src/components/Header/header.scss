@@ -7,12 +7,23 @@
     padding: 2rem;
     background-color: white;
     box-shadow: 0px 5px 5px 0px rgba(199,199,199,1);
+    @media only screen and (max-width: $tablet) {
+        padding: 1.5rem 1rem;
+        justify-content: center;
+    }
     &__logo {
         font-family: $primary-font;
         font-size: 3rem;
         color: $dark-purple;
+        @media only screen and (max-width: $tablet) {
+            display: none;
+        }
     }
     &__search {
+        flex: 1;
+        display: flex;
+        margin: 0 1.5rem;
+        max-width: 40rem;
         input {
             color: $dark-purple;
             font-family: $secondary-font;
@@ -20,14 +31,20 @@
             border: 1px solid #d3d3d3;
             border-radius: 10px;
             height: 2rem;
-            width: 35rem;
+            width: 100%;
             padding: 0.5rem;
-            background: url('../../assets/search-icon.png') no-repeat 32.5rem;
+            background: url('../../assets/search-icon.png') no-repeat 98%;
             background-size: contain;
             &:focus {
                 outline: none;
                 border: 1px solid $dark-purple;
             }
+        }
+        @media only screen and (max-width: $tablet) {
+            // display: none;
+            width: 100%;
+            display: flex;
+            align-items: center;
         }
     }
     &__nav {
@@ -44,6 +61,9 @@
                 fill: $dark-purple;
                 margin-left: 0.5rem;
             }
+        }
+        @media only screen and (max-width: $tablet) {
+            display: none;
         }
     }
 }

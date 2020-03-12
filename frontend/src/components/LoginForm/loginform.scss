@@ -1,0 +1,20 @@
+@import '../../global-styles/globals.scss';
+
+.login-form {
+    flex: 1;
+    padding: 1rem;
+    .login-form__email-field, .login-form__password-field {
+        @include auth-form-field;
+        .email-field__label, .password-field__label {
+            @include auth-form-label;
+        }
+        .email-field__input, .password-field__input {
+            @include auth-form-input;
+        }
+    }
+    &__submit-btn {
+        @include yellow-btn;
+        width: 10rem;
+        margin: 0;
+    }
+}

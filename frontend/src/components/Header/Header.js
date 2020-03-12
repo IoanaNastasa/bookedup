@@ -4,7 +4,6 @@ import loginIcon from '../../assets/login-icon.png';
 import logoutIcon from '../../assets/logout-icon.png';
 import registerIcon from '../../assets/register-icon.png';
 import profileIcon from '../../assets/profile-icon.png';
-import searchIcon from '../../assets/search-icon.png';
 export default function Header() {
     const isLoggedIn = false;
     function logOut() {

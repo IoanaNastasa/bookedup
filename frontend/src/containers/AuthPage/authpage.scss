@@ -1,0 +1,20 @@
+@import '../../global-styles/globals.scss';
+
+.auth-page {
+    .auth-page__back {
+        color: $dark-purple;
+        font-family: $secondary-font;
+        font-size: 1.2rem;
+        .back__icon {
+            height: 1.2rem;
+        }
+    }
+    .auth-page__content {
+        display: flex;
+        .svg-container {
+            @media only screen and (max-width: $tablet) {
+                display: none;
+            }
+        }
+    }
+}
