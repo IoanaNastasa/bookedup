@@ -7,6 +7,9 @@
   width: 15rem;
   padding: 0.5rem;
   margin: 0 0 1rem 0;
+  text-decoration: none;
+  color: $dark-purple;
+  text-align: center;
   &:focus {
     outline: none;
   }
@@ -16,7 +19,7 @@
 }
 
 @mixin  auth-form-input {
-    max-width: 100%;
+    max-width: 30rem;
     border: 1px solid #d3d3d3;
     color: $dark-purple;
     font-family: $secondary-font;

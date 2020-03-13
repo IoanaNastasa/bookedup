@@ -2,6 +2,10 @@
 
 .register-form {
     flex: 1;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .register-form__firstName-field, .register-form__lastName-field, .register-form__email-field, .register-form__password-field, .register-form__repeatPassword-field {
         @include auth-form-field;
         .firstName-field__label, .lastName-field__label, .email-field__label, .password-field__label, .repeatpassword-field__label {

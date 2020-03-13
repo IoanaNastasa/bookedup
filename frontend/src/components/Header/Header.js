@@ -1,20 +1,15 @@
 import React, { useState } from 'react'
 import './header.scss'
+import { Link } from 'react-router-dom'
 import loginIcon from '../../assets/login-icon.png';
 import logoutIcon from '../../assets/logout-icon.png';
 import registerIcon from '../../assets/register-icon.png';
 import profileIcon from '../../assets/profile-icon.png';
 export default function Header() {
-    const isLoggedIn = false;
-    function logOut() {
-        // erase token from cookie
-        // redirect to landingpage
+    function logout() {
         console.log('logout');
     }
-    function logIn() {
-        // redirect to userpage
-        console.log('login');
-    }
+    const isLoggedIn = true;  
     return (
         <div className="header">
             <h1 className="header__logo">BookedUp</h1>
@@ -24,25 +19,25 @@ export default function Header() {
             {
                 isLoggedIn ? 
                 <div className="header__nav">
-                    <a className="nav__link" onClick={isLoggedIn} href="#">
+                    <Link className="nav__link" to="/landingpage" href="#">
                         Account               
                         <img className="link__icon" src={profileIcon}></img>
-                    </a>
-                    <a className="nav__link" onClick={isLoggedIn} href="#">
+                    </Link>
+                    <Link className="nav__link" to="/main/browse" onClick={logout}>
                         Log out              
                         <img className="link__icon" src={logoutIcon}></img>
-                    </a>
+                    </Link>
                 </div>
                 :
                 <div className="header__nav">
-                <a className="nav__link" onClick={ isLoggedIn ? logOut : logIn } href="#">
+                <Link to="/auth/login" className="nav__link"  href="#">
                     Log In              
                     <img className="link__icon" src={loginIcon}></img>
-                </a>
-                <a className="nav__link" onClick={ isLoggedIn ? logOut : logIn } href="#">
+                </Link>
+                <Link to="/auth/register" className="nav__link"  href="#">
                     Register              
                     <img className="link__icon" src={registerIcon}></img>
-                </a>
+                </Link>
             </div>
             }
             

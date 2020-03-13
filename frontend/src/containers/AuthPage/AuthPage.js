@@ -1,25 +1,20 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
+import { Link, Route } from 'react-router-dom';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import authSVG from '../../assets/auth-page.svg';
-import backIcon from '../../assets/back-icon.png';
+import backIcon from '../../assets/arrow-back-icon.png';
 import './authpage.scss'
 export default function AuthPage() {
-    // render login or register based on path param or smth
-    const page = 'register';
     return (
         <div className="auth-page">
-            <a className="auth-page__back"><img className="back__icon" src={backIcon}></img>Back</a>
+            <Link to="/landingpage" className="auth-page__back" href="#" ><img className="back__icon" src={backIcon}></img>Go Back</Link>
             <div className="auth-page__content">
-                {
-                    page === 'register' ?
-                    <RegisterForm></RegisterForm>
-                    :
-                    <LoginForm></LoginForm>
-                }
+                <Route exact path="/auth/register" component={RegisterForm}></Route>
+                <Route exact path="/auth/login" component={LoginForm}></Route>
                 <div className="svg-container">
-                    <ReactSVG src={authSVG}></ReactSVG>
+                    <img className="svg-container__img" src={require("../../assets/auth-page.svg")} alt=""/>
                 </div>
             </div>
         </div>

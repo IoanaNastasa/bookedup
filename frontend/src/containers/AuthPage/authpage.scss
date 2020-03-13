@@ -1,19 +1,33 @@
 @import '../../global-styles/globals.scss';
 
 .auth-page {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
     .auth-page__back {
         color: $dark-purple;
         font-family: $secondary-font;
         font-size: 1.2rem;
+        margin: 2rem 0 1rem 2rem;
+        text-decoration: none;
         .back__icon {
             height: 1.2rem;
+            margin-right: 0.3rem;
         }
     }
     .auth-page__content {
         display: flex;
+        flex: 1;
         .svg-container {
+            overflow: hidden;
             @media only screen and (max-width: $tablet) {
                 display: none;
+            }
+            .svg-container__img {
+                height: 50rem;
+                position: relative;
+                top: 40%;
+                left: 15%;
             }
         }
     }

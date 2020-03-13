@@ -2,7 +2,10 @@
 
 .login-form {
     flex: 1;
-    padding: 1rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .login-form__email-field, .login-form__password-field {
         @include auth-form-field;
         .email-field__label, .password-field__label {
