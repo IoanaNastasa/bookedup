@@ -10,6 +10,7 @@ const { db } = require('./config');
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log('mongodb connected'))
 .catch(err => console.log(err));
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use('/books', require('./routes/books'));

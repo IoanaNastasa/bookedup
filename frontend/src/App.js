@@ -10,9 +10,6 @@ function App() {
     <Router>
       <div className="App">
         <Route exact path="/landingpage" component={LandingPage}></Route>
-        <Route exact path="/auth">
-          <Redirect to="/landingpage"></Redirect>
-        </Route>
         <Route path="/auth" component={AuthPage}></Route>
         <Route path="/main" component={Main}></Route>
       </div>

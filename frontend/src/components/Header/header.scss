@@ -11,12 +11,16 @@
         padding: 1.5rem 1rem;
         justify-content: center;
     }
-    &__logo {
-        font-family: $primary-font;
-        font-size: 3rem;
-        color: $dark-purple;
-        @media only screen and (max-width: $tablet) {
-            display: none;
+    &__home-link {
+        text-decoration: none;
+        .home-link__logo {
+            text-decoration: none;
+            font-family: $primary-font;
+            font-size: 3rem;
+            color: $dark-purple;
+            @media only screen and (max-width: $tablet) {
+                display: none;
+            }
         }
     }
     &__search {
