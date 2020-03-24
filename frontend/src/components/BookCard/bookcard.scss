@@ -1,0 +1,39 @@
+@import '../../global-styles/globals.scss';
+.book-card {
+    width: 22rem;
+    height: 8rem;
+    display: flex;
+    // margin: 1rem;
+    padding: 0.5rem;
+    box-shadow: -2px 2px 8px 0px #c7c7c7;
+    &__cover {
+        height: 7rem;
+        width: 6rem;
+        margin-right: 1rem;
+        background-size: cover;
+        background-position: center;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        .content__title {
+            font-family: $primary-font;
+            color: $dark-purple;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .content__author {
+            font-family: $secondary-font;
+            color: $dark-purple;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+
+        }
+        .content__read-more {
+            font-family: $secondary-font;
+            color: $dark-purple;
+            text-decoration-color: $yellow;
+            font-size: 0.8rem;
+        }
+    }
+}

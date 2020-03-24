@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom'
 import GenrePage from '../GenrePage/GenrePage'
 import { Route } from 'react-router-dom'
 export default function GenreList({ match }) {
-    console.log(match)
     return (
-        <div className="genre-list">
+    <div className="genre-list">
         <div className="genre-list__container">
             <Link className="container__cooking" to="/main/cooking">
                 <img src={require("../../assets/cooking-genre.png")}></img>

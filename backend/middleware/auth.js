@@ -1,7 +1,7 @@
 // middleware that adds id from jwt payload and adds it to the request
 const jwt = require('jsonwebtoken');
 const { JWTSecret } = require('../config');
-
+// checks if token is ok
 function auth(req, res, next) {
     const token = req.header('x-auth-token');
     try {

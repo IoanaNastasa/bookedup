@@ -1,0 +1,24 @@
+// https://codepen.io/FredGenkin/pen/eaXYGV
+@import '../../global-styles/globals.scss';
+
+:root {
+    --star-size: 1.5rem;
+    --star-color: #fff;
+  }
+  
+  .Stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+    flex-grow: 1;
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times; // make sure ★ appears correctly
+    line-height: 1;
+    
+    &::before {
+      content: '★★★★★';
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, $yellow var(--percent), #ffde2757 var(--percent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }

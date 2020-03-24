@@ -23,7 +23,7 @@ export default function LoginForm() {
                 type="text"
                 required></input>
             </div>
-            <button className="login-form__submit-btn" type="submit">Submit</button>
+            <button className="login-form__submit-btn" type="submit" onSubmit="onSubmitLogin">Submit</button>
         </form>
     )
 }

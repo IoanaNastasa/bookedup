@@ -12,7 +12,7 @@ export default function Header() {
     const isLoggedIn = true;  
     return (
         <div className="header">
-            <Link className="header__home-link">
+            <Link to="/main/browse" className="header__home-link">
                 <h1 className="home-link__logo">BookedUp</h1>
             </Link>
             <div className="header__search">
