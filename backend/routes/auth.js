@@ -32,6 +32,7 @@ router.post('/register', (req, res) => {
                             { expiresIn: 7200 },
                             (err, token) => {
                                 if (err) throw err;
+                                res.cookie('jwt',token, { httpOnly: true, path: '/', maxAge: 3600000 });
                                 res.json({
                                     token,
                                     user: {
@@ -58,21 +59,16 @@ router.post('/login', (req, res) => {
     // validate data, solve 
     User.findOne({ email: email }).then(user => {
         if(!user) res.json('user doesn\'t exist');
-
         // check if password is correct
         bcrypt.compare(password, user.password).then(isMatch => {
             if( !isMatch ) res.json('wrong password');
-            // console.log('id', user.id);
-            // res.cookie('userId', user.id);
-            // console.log(req.cookie(userId));
-            // res.cookie('')
-            // console.log(req.cookie.userId);
             jwt.sign(
                 { id: user.id},
                 JWTSecret,
                 { expiresIn: 7200 },
                 (err, token) => {
                     if( err ) throw err;
+                    res.cookie('jwt',token, { httpOnly: true, path: '/', maxAge: 3600000 }); //httpOnly: true, secure: true,
                     res.json({
                         token,
                         user: {
@@ -88,6 +84,22 @@ router.post('/login', (req, res) => {
     })
 })
 
+router.get('/logout', (req, res) => {
+    res.clearCookie('jwt', { httpOnly: true, path: '/', maxAge: 3600000 });
+    res.json('cookie cleared');
+})
+
+// check if jwt cookie exists, decode user and send it
+router.get('/currentuser', (req, res) => {
+    if(req.cookies['jwt']) {
+        const decoded = jwt.verify(req.cookies['jwt'], JWTSecret);
+        User.findById(decoded.id).then(user => {
+            res.json(user)
+        });
+    } else {
+        res.json("cookie doesn't exist");
+    }
+});
 // TODO: Add put routes to edit want to read and read titles
 
 module.exports = router;

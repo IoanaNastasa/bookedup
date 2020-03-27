@@ -5,12 +5,14 @@ const cookieParser = require('cookie-parser');
 const app = express();
 
 app.use(express.json());
-
 const { db } = require('./config');
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log('mongodb connected'))
 .catch(err => console.log(err));
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+  }));
 app.use(cookieParser());
 app.use(express.json());
 app.use('/books', require('./routes/books'));

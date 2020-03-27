@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import StarPercentageRating from '../StarPercentageRating/StarPercentageRating'
 import StarUserRating from '../StarUserRating/StarUserRating'
 export default function BookPage() {

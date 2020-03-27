@@ -1,10 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './loginform.scss';
+import UserContext from '../../UserContext';
+
 export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { setUser } = useContext(UserContext);
+    async function onSubmitLogin(event) {
+        event.preventDefault();
+        const settings = {
+            method: 'POST',
+            body: JSON.stringify({
+                email,
+                password
+            }),
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        };
+        try {
+            const fetchResponse = await fetch(`http://localhost:5000/auth/login`, settings); //, settings);
+            const data = await fetchResponse.json();
+            // save token on cookies
+            // save id on context
+            setUser(data.user);
+
+            return data;
+        } catch (e) {
+            return e;
+        }    
+    }
     return (
-        <form className="login-form">
+        <form className="login-form" onSubmit={onSubmitLogin}>
             <div className="login-form__email-field">
                 <label className="email-field__label">Email</label>
                 <input 
@@ -23,7 +52,7 @@ export default function LoginForm() {
                 type="text"
                 required></input>
             </div>
-            <button className="login-form__submit-btn" type="submit" onSubmit="onSubmitLogin">Submit</button>
+            <button className="login-form__submit-btn" type="submit">Submit</button>
         </form>
     )
 }

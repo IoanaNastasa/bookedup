@@ -1,15 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './registerform.scss'
+import UserContext from '../../UserContext';
 
 export default function RegisterForm() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [repeatPassword, setRepeatPassword] = useState('');
-
+    const [repeatPassword, setRepeatPassword] = useState(''); // need to compare these two somewhere bleh
+    const { setUser } = useContext(UserContext);
+    async function onSubmitRegister(event) {
+        event.preventDefault();
+        const settings = {
+            method: 'POST',
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                email,
+                password
+            }),
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        };
+        try {
+            const fetchResponse = await fetch(`http://localhost:5000/auth/register`, settings);
+            const data = await fetchResponse.json();
+            // save token on cookies
+            // save id on context
+            setUser(data.user);
+            return data;
+        } catch (e) {
+            return e;
+        }    
+    }
     return (
-        <form className="register-form">
+        <form className="register-form" onSubmit={onSubmitRegister}>
             <div className="register-form__firstName-field">
                 <label className="firstName-field__label">First Name</label>
                 <input className="firstName-field__input" value={firstName} onChange={e => setFirstName(e.target.value)} type="text"/>
