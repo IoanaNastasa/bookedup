@@ -97,7 +97,7 @@ router.get('/currentuser', (req, res) => {
             res.json(user)
         });
     } else {
-        res.json("cookie doesn't exist");
+        res.status(404).json("cookie doesn't exist");
     }
 });
 // TODO: Add put routes to edit want to read and read titles

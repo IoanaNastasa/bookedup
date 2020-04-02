@@ -12,8 +12,10 @@ function App() {
   useEffect(() => {
     const fetchSessionUser = async() => {
       const response = await fetch('http://localhost:5000/auth/currentuser', {credentials: 'include'});
-      const result = await response.json();
-      setUser(result);
+      if(response.status === 200) {
+        const result = await response.json();
+        setUser(result);
+      }
     };
     fetchSessionUser();
   }, []);

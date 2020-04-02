@@ -2,6 +2,11 @@
 
 .genre-page {
     display: flex;
+    margin: 0 0 0 2rem;
+    background: url('../../assets/genre-page.svg') no-repeat;
+    background-position: 110% 120%;
+    background-attachment: fixed;
+    position: relative;
     &__books {
         margin: 4rem 2rem 2rem 2rem;
         display: grid;
@@ -12,7 +17,28 @@
             margin: 0.5rem;
         }
     }
-    @media only screen and (max-width: $tablet) {
+    &__desc {
+        .desc__text {
+            font-family: Catamaran;
+            color: #2D2140;
+            font-size: 1rem;
+            display: block;
+            margin: 0 2rem 0 0;
+            max-width: 20%;
+            position: fixed;
+            top: 45%;
+            line-height: 2.5;
+            right: 10%;
+            &::first-line {
+                font-weight: bold;
+            }
+        }
+        @media only screen and (max-width: 1200px) {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
         justify-content: center;
+        background: none;
     }
 }
