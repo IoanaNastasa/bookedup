@@ -8,5 +8,3 @@ export default function StarPercentageRating(props) {
         <div className="Stars" style={style} aria-label="Rating of this product is 2.3 out of 5."></div>
     )
 }
-// ar style = { "--my-css-var": 10 } as React.CSSProperties;
-//   return <div style={style}>...</div>

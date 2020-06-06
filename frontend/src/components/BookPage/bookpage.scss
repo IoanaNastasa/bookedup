@@ -1,0 +1,72 @@
+@import '../../global-styles/globals.scss';
+
+.book-page {
+    margin: 0 0 0 2rem;
+    &__book-info {
+        margin: 4rem 2rem 2rem 2rem;
+        .book-info__cover {
+            background-size: cover;
+            background-position: center;
+            height: 24rem;
+            width: 16rem;
+        }
+        .book-info__title {
+            color: $dark-purple;
+            font-family: $primary-font;
+            font-size: 2rem;
+        }
+        .book-info__author {
+            color: $dark-purple;
+            font-family: $secondary-font;
+            font-size: 1.5rem;
+        }
+        .book-info__description {
+            color: $dark-purple;
+            font-family: $secondary-font;
+            font-size: 1rem;
+            line-height: 2;
+        }
+        .book-info_existing-rating, .book-info_new-rating {
+            color: $dark-purple;
+            font-family: $secondary-font;
+            font-size: 1rem;
+        }
+        .buttons__read, .buttons__want-to-read {
+            @include yellow-btn;
+            font-size: 0.8rem;
+            width: 8rem;
+            box-shadow: -2px 2px 8px 0px #c7c7c7;
+        }
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: minmax(min-content, max-content);
+    .grid-item-1 {
+        grid-row: 1 / span 2;
+    }
+    .grid-item-3 {
+        grid-row: 2 / span 2;
+    }
+}
+
+@media only screen and (max-width: $tablet) {
+    .grid-container {
+    grid-auto-rows: minmax(min-content, max-content);
+     .grid-item-1 {
+        grid-row: 1 / span 1; 
+      }
+      .grid-item-3 {
+        grid-column: 1 / span 2;
+      }
+      .grid-item-2 {
+        grid-row: 1 / span 1;
+      }
+      .grid-item-4 {
+        grid-column: 1 / span 2;
+        grid-row: 4 / span 1;
+      }
+    }
+}
