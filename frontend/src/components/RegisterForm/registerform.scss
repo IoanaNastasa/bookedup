@@ -17,5 +17,7 @@
     } 
     .register-form__submit-btn {
         @include yellow-btn;
+        width: 15rem;
+        font-size: 1.5rem;
     }
 }

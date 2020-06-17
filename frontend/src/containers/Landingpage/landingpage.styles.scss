@@ -29,6 +29,8 @@
         .content__btn--register, .content__btn--login {
             display: block;
             @include yellow-btn;
+            width: 15rem;
+            font-size: 1.5rem;
         }
         .content__browse-link{
             font-family: $secondary-font;

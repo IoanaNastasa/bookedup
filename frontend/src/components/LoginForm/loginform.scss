@@ -17,7 +17,8 @@
     }
     &__submit-btn {
         @include yellow-btn;
-        width: 10rem;
+        width: 15rem;
         margin: 0;
+        font-size: 1.5rem;
     }
 }

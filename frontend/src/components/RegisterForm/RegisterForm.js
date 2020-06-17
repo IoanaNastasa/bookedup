@@ -22,7 +22,8 @@ export default function RegisterForm() {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         };
         try {
             const fetchResponse = await fetch(`http://localhost:5000/auth/register`, settings);
